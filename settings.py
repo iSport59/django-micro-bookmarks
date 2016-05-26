@@ -1,4 +1,4 @@
-# Django settings for django_bookmarks project.
+# Django settings for bookmarks project.
 
 import os.path
 
@@ -66,7 +66,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.locale.LocaleMiddleware',
 )
 
-ROOT_URLCONF = 'django_bookmarks.urls'
+ROOT_URLCONF = 'bookmarks.urls'
 
 TEMPLATE_DIRS = (
     os.path.join(os.path.dirname(__file__), 'templates'),
@@ -79,7 +79,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.comments',
-    'django_bookmarks.bookmarks',
+    'bookmarks',
 )
 
 LOGIN_URL = '/login/'
