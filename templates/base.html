@@ -1,0 +1,52 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Django Bookmarks 
+    {% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="/site_media/style.css"
+    type="text/css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+  {% block external %}{% endblock %}
+</head>
+
+<body> 
+
+<div class="container-fluid">
+   <div id="nav">
+    <a class="btn btn-sm btn-primary" role="button" href="/">home</a> 
+    <a class="btn btn-sm btn-primary" role="button" href="/popular/">popular</a> 
+    {% if user.is_authenticated %}
+      <a class="btn btn-sm btn-primary" role="button" href="/save/">submit</a> 
+      <a class="btn btn-sm btn-primary" role="button" href="/search/">search</a> 
+      <a class="btn btn-sm btn-primary" role="button" href="/user/{{ user.username }}/">
+        {{ user.username }}</a> 
+      <a class="btn btn-sm btn-primary" role="button" href="/logout/">logout</a>
+    {% else %}
+      <a class="btn btn-sm btn-primary" role="button" href="/login/">login</a> 
+      <a class="btn btn-sm btn-primary" role="button" href="/register/">register</a>
+    {% endif %}
+  </div>
+  
+  <h1>{% block head %}{% endblock %}</h1>
+  {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% block content %}{% endblock %}
+</div>
+  <div id="footer">
+   
+  </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+</html>
